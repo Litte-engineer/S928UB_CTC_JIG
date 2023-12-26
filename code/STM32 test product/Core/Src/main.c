@@ -97,9 +97,11 @@ int main(void)
 			Write_String(12, GREEN_C, "MAIN_15-UB_15 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
 			status.display = 1;
 		}*/
-		HAL_ADC_Start(&hadc1);
-		FET_2M_ON;
+		
+		FET_20R_ON;
 		WriteBit_74HC (U1, HC74_PIN2, HIGH);
+		WriteBit_74HC (U12, HC74_PIN1, LOW);
+		HAL_ADC_Start(&hadc1);
 		adc_value = HAL_ADC_GetValue(&hadc1);
 		
   }
