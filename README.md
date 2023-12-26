@@ -1,0 +1,2 @@
+# S928UB_CTC_JIG
+Dự án jig s928 UB CTC
