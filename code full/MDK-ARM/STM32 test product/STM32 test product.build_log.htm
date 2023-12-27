@@ -27,16 +27,19 @@ Project File Date:  12/27/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32 test product'
+compiling Nextion.c...
 compiling main.c...
 ../Core/Inc/delay.h(13): warning:  #1295-D: Deprecated declaration delay_init - give arg types
   void delay_init ();
 ../Core/Inc/pinmap.h(56): warning:  #1295-D: Deprecated declaration GND_INIT - give arg types
   void GND_INIT();
-../Core/Src/main.c: 2 warnings, 0 errors
+../Core/Src/main.c(155): warning:  #223-D: function "add_line_lcd" declared implicitly
+  		add_line_lcd("*********************** STATR TESTING *******************", BLUE_C, &lcd_count_line);
+../Core/Src/main.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=10482 RO-data=490 RW-data=36 ZI-data=2076  
+Program Size: Code=10606 RO-data=490 RW-data=36 ZI-data=2876  
 FromELF: creating hex file...
-"STM32 test product\STM32 test product.axf" - 0 Error(s), 2 Warning(s).
+"STM32 test product\STM32 test product.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

@@ -152,8 +152,9 @@ void test_start(void)
 	}
 	if(status.test == 2)
 	{
-		
-		tft_serial(0, BLUE_C, "*********************** STATR TESTING *******************");	
+		add_line_lcd("*********************** STATR TESTING *******************", BLUE_C, &lcd_count_line);
+		add_line_lcd("***********************  TESTING *******************", BLUE_C, &lcd_count_line);
+		//tft_serial(0, BLUE_C, "*********************** STATR TESTING *******************");	
 		status.test = 3;
 	}
 }

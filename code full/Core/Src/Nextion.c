@@ -308,6 +308,17 @@ void result_test_lcd_spen(float res, char* con, char* mode_test)
 	lcd_add_line((char*)buffer, color);
 	
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void add_line_lcd(char* str, char* color, uint8_t *lcd_count_line)
+{
+	if(*lcd_count_line < MUMBER_LINE_LCD)
+	{
+    tft_serial(*lcd_count_line, color, str);
+    lcd_data[*lcd_count_line] = str;
+		lcd_text_color[*lcd_count_line] = color;
+    *lcd_count_line = *lcd_count_line + 1;
+	}
+}
 
 
