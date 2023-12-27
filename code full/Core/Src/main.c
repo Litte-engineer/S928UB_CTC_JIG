@@ -6,6 +6,7 @@
 #include "MCP23017.h"
 #include "Spen_74hc.h"
 #include "pinmap.h"
+#include "stdio.h"
 
 ADC_HandleTypeDef hadc1;
 
@@ -110,7 +111,7 @@ int main(void)
 		adc_value = HAL_ADC_GetValue(&hadc1);
     banner();
 		status.sensor = SENSOR_READ;	
-
+		real_time();
 		test_start();
   }
   /* USER CODE END 3 */
@@ -151,8 +152,9 @@ void test_start(void)
 	}
 	if(status.test == 2)
 	{
-		real_time();
-		//Write_String(0, BLUE_C, "*********************** STATR TESTING *******************");	
+		
+		tft_serial(0, BLUE_C, "*********************** STATR TESTING *******************");	
+		status.test = 3;
 	}
 }
 
@@ -180,7 +182,7 @@ void real_time(void)
 		if(Time.old_count != Time.count)
 		{
 			sprintf(buff_time,"%02d:%02d:%02d", Time.hour, Time.min, Time.sec);
-			Nextion_Send_String("t9", buff_time);
+			Nextion_Send_String("t9", buff_time);		
 			Time.old_count = Time.count;
 		}
 		
@@ -193,9 +195,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim->Instance == TIM3)
   {
+		
     Time.sec ++;
 		if(Time.sec > 59)
 		{
+			
 			Time.min ++;
 			if(Time.min > 59)
 			{
@@ -203,9 +207,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				Time.min = 0;
 			}
 			Time.sec = 0;
-		}
-		//sprintf(buff_time,"%02d:%02d:%02d", Time.hour, Time.min, Time.sec);
-		//Nextion_Send_String("t9", buff_time);
+		}	
   }
 }
 

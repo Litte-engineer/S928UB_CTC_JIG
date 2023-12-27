@@ -23,7 +23,7 @@ uint32_t lcd_time;
 void end_transmit(void)
 {
 	HAL_UART_Transmit(&UART_NEXTION, Cmd_end, 3, 100);
-	HAL_Delay(10);
+	//HAL_Delay(10);
 }
 
 /*************** chuyen page **********************/
@@ -41,7 +41,7 @@ void Nextion_Send_String(char *ID, char *string)
     char buf[50];
     int len = sprintf(buf,"%s.txt=\"%s\"", ID, string);
     HAL_UART_Transmit(&UART_NEXTION, (uint8_t*)buf, len, 100);
-		end_transmit();
+		HAL_UART_Transmit(&UART_NEXTION, Cmd_end, 3, 100);
 }
 
 /********** ham hien thi so 32 bit ********/

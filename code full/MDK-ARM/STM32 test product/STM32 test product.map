@@ -73,6 +73,7 @@ Section Cross References
     main.o(i.main) refers to stm32f4xx_hal_adc.o(i.HAL_ADC_GetValue) for HAL_ADC_GetValue
     main.o(i.main) refers to main.o(i.banner) for banner
     main.o(i.main) refers to stm32f4xx_hal_gpio.o(i.HAL_GPIO_ReadPin) for HAL_GPIO_ReadPin
+    main.o(i.main) refers to main.o(i.real_time) for real_time
     main.o(i.main) refers to main.o(i.test_start) for test_start
     main.o(i.main) refers to main.o(.bss) for .bss
     main.o(i.main) refers to main.o(.data) for .data
@@ -84,9 +85,9 @@ Section Cross References
     main.o(i.real_time) refers to __2sprintf.o(.text) for __2sprintf
     main.o(i.real_time) refers to nextion.o(i.Nextion_Send_String) for Nextion_Send_String
     main.o(i.real_time) refers to main.o(.bss) for .bss
-    main.o(i.test_start) refers to main.o(i.real_time) for real_time
     main.o(i.test_start) refers to stm32f4xx_hal_tim.o(i.HAL_TIM_Base_Start_IT) for HAL_TIM_Base_Start_IT
     main.o(i.test_start) refers to main.o(.data) for .data
+    main.o(i.test_start) refers to nextion.o(.data) for tft_serial
     main.o(i.test_start) refers to main.o(.bss) for .bss
     stm32f4xx_it.o(i.DMA2_Stream2_IRQHandler) refers to stm32f4xx_hal_dma.o(i.HAL_DMA_IRQHandler) for HAL_DMA_IRQHandler
     stm32f4xx_it.o(i.DMA2_Stream2_IRQHandler) refers to main.o(.bss) for hdma_usart1_rx
@@ -172,8 +173,8 @@ Section Cross References
     nextion.o(i.Nextion_Send_String) refers to _printf_str.o(.text) for _printf_str
     nextion.o(i.Nextion_Send_String) refers to __2sprintf.o(.text) for __2sprintf
     nextion.o(i.Nextion_Send_String) refers to stm32f4xx_hal_uart.o(i.HAL_UART_Transmit) for HAL_UART_Transmit
-    nextion.o(i.Nextion_Send_String) refers to nextion.o(i.end_transmit) for end_transmit
     nextion.o(i.Nextion_Send_String) refers to main.o(.bss) for huart1
+    nextion.o(i.Nextion_Send_String) refers to nextion.o(.data) for .data
     nextion.o(i.Nextion_SetColor) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
     nextion.o(i.Nextion_SetColor) refers to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
     nextion.o(i.Nextion_SetColor) refers to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
@@ -205,7 +206,6 @@ Section Cross References
     nextion.o(i.check_line_lcd) refers to main.o(.bss) for lcd_data
     nextion.o(i.check_line_lcd) refers to main.o(.bss) for lcd_text_color
     nextion.o(i.end_transmit) refers to stm32f4xx_hal_uart.o(i.HAL_UART_Transmit) for HAL_UART_Transmit
-    nextion.o(i.end_transmit) refers to stm32f4xx_hal.o(i.HAL_Delay) for HAL_Delay
     nextion.o(i.end_transmit) refers to nextion.o(.data) for .data
     nextion.o(i.end_transmit) refers to main.o(.bss) for huart1
     nextion.o(i.lcd_UintToChar) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
@@ -1862,47 +1862,47 @@ Image Symbol Table
     i.MemManage_Handler                      0x080022c8   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
     i.NMI_Handler                            0x080022ca   Section        0  stm32f4xx_it.o(i.NMI_Handler)
     i.Nextion_Send_String                    0x080022cc   Section        0  nextion.o(i.Nextion_Send_String)
-    i.Nextion_SetColor                       0x08002300   Section        0  nextion.o(i.Nextion_SetColor)
-    i.PendSV_Handler                         0x08002334   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
-    i.SVC_Handler                            0x08002336   Section        0  stm32f4xx_it.o(i.SVC_Handler)
-    i.SetOutput_Gpio_A                       0x08002338   Section        0  mcp23017.o(i.SetOutput_Gpio_A)
-    i.SetOutput_Gpio_B                       0x08002370   Section        0  mcp23017.o(i.SetOutput_Gpio_B)
-    i.SysTick_Handler                        0x080023a8   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
-    i.SystemClock_Config                     0x080023ac   Section        0  main.o(i.SystemClock_Config)
-    i.SystemInit                             0x0800243c   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.TIM3_IRQHandler                        0x0800244c   Section        0  stm32f4xx_it.o(i.TIM3_IRQHandler)
-    i.TIM_Base_SetConfig                     0x08002458   Section        0  stm32f4xx_hal_tim.o(i.TIM_Base_SetConfig)
-    i.TIM_ETR_SetConfig                      0x080024f0   Section        0  stm32f4xx_hal_tim.o(i.TIM_ETR_SetConfig)
-    i.TIM_ITRx_SetConfig                     0x08002504   Section        0  stm32f4xx_hal_tim.o(i.TIM_ITRx_SetConfig)
-    TIM_ITRx_SetConfig                       0x08002505   Thumb Code    16  stm32f4xx_hal_tim.o(i.TIM_ITRx_SetConfig)
-    i.TIM_TI1_ConfigInputStage               0x08002514   Section        0  stm32f4xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
-    TIM_TI1_ConfigInputStage                 0x08002515   Thumb Code    34  stm32f4xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
-    i.TIM_TI2_ConfigInputStage               0x08002536   Section        0  stm32f4xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
-    TIM_TI2_ConfigInputStage                 0x08002537   Thumb Code    36  stm32f4xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
-    i.UART_SetConfig                         0x0800255c   Section        0  stm32f4xx_hal_uart.o(i.UART_SetConfig)
-    UART_SetConfig                           0x0800255d   Thumb Code   258  stm32f4xx_hal_uart.o(i.UART_SetConfig)
-    i.UART_WaitOnFlagUntilTimeout            0x08002668   Section        0  stm32f4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout)
-    UART_WaitOnFlagUntilTimeout              0x08002669   Thumb Code   120  stm32f4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout)
-    i.UsageFault_Handler                     0x080026e0   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
-    i.Write_String                           0x080026e4   Section        0  nextion.o(i.Write_String)
-    i.__NVIC_SetPriority                     0x08002780   Section        0  stm32f4xx_hal_cortex.o(i.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x08002781   Thumb Code    32  stm32f4xx_hal_cortex.o(i.__NVIC_SetPriority)
-    i._is_digit                              0x080027a0   Section        0  __printf_wp.o(i._is_digit)
-    i.banner                                 0x080027b0   Section        0  main.o(i.banner)
-    i.delay_init                             0x08002820   Section        0  delay.o(i.delay_init)
-    i.delay_us                               0x0800282c   Section        0  delay.o(i.delay_us)
-    i.end_transmit                           0x08002844   Section        0  nextion.o(i.end_transmit)
+    i.Nextion_SetColor                       0x0800230c   Section        0  nextion.o(i.Nextion_SetColor)
+    i.PendSV_Handler                         0x08002340   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
+    i.SVC_Handler                            0x08002342   Section        0  stm32f4xx_it.o(i.SVC_Handler)
+    i.SetOutput_Gpio_A                       0x08002344   Section        0  mcp23017.o(i.SetOutput_Gpio_A)
+    i.SetOutput_Gpio_B                       0x0800237c   Section        0  mcp23017.o(i.SetOutput_Gpio_B)
+    i.SysTick_Handler                        0x080023b4   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
+    i.SystemClock_Config                     0x080023b8   Section        0  main.o(i.SystemClock_Config)
+    i.SystemInit                             0x08002448   Section        0  system_stm32f4xx.o(i.SystemInit)
+    i.TIM3_IRQHandler                        0x08002458   Section        0  stm32f4xx_it.o(i.TIM3_IRQHandler)
+    i.TIM_Base_SetConfig                     0x08002464   Section        0  stm32f4xx_hal_tim.o(i.TIM_Base_SetConfig)
+    i.TIM_ETR_SetConfig                      0x080024fc   Section        0  stm32f4xx_hal_tim.o(i.TIM_ETR_SetConfig)
+    i.TIM_ITRx_SetConfig                     0x08002510   Section        0  stm32f4xx_hal_tim.o(i.TIM_ITRx_SetConfig)
+    TIM_ITRx_SetConfig                       0x08002511   Thumb Code    16  stm32f4xx_hal_tim.o(i.TIM_ITRx_SetConfig)
+    i.TIM_TI1_ConfigInputStage               0x08002520   Section        0  stm32f4xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
+    TIM_TI1_ConfigInputStage                 0x08002521   Thumb Code    34  stm32f4xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
+    i.TIM_TI2_ConfigInputStage               0x08002542   Section        0  stm32f4xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
+    TIM_TI2_ConfigInputStage                 0x08002543   Thumb Code    36  stm32f4xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
+    i.UART_SetConfig                         0x08002568   Section        0  stm32f4xx_hal_uart.o(i.UART_SetConfig)
+    UART_SetConfig                           0x08002569   Thumb Code   258  stm32f4xx_hal_uart.o(i.UART_SetConfig)
+    i.UART_WaitOnFlagUntilTimeout            0x08002674   Section        0  stm32f4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout)
+    UART_WaitOnFlagUntilTimeout              0x08002675   Thumb Code   120  stm32f4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout)
+    i.UsageFault_Handler                     0x080026ec   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
+    i.Write_String                           0x080026f0   Section        0  nextion.o(i.Write_String)
+    i.__NVIC_SetPriority                     0x0800278c   Section        0  stm32f4xx_hal_cortex.o(i.__NVIC_SetPriority)
+    __NVIC_SetPriority                       0x0800278d   Thumb Code    32  stm32f4xx_hal_cortex.o(i.__NVIC_SetPriority)
+    i._is_digit                              0x080027ac   Section        0  __printf_wp.o(i._is_digit)
+    i.banner                                 0x080027bc   Section        0  main.o(i.banner)
+    i.delay_init                             0x0800282c   Section        0  delay.o(i.delay_init)
+    i.delay_us                               0x08002838   Section        0  delay.o(i.delay_us)
+    i.end_transmit                           0x08002850   Section        0  nextion.o(i.end_transmit)
     i.main                                   0x08002864   Section        0  main.o(i.main)
-    i.real_time                              0x08002990   Section        0  main.o(i.real_time)
-    i.test_start                             0x080029f0   Section        0  main.o(i.test_start)
-    x$fpl$fpinit                             0x08002a2c   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08002a2c   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x08002a36   Section        8  stm32f4xx_hal_dma.o(.constdata)
-    flagBitshiftOffset                       0x08002a36   Data           8  stm32f4xx_hal_dma.o(.constdata)
-    .constdata                               0x08002a3e   Section       16  system_stm32f4xx.o(.constdata)
-    .constdata                               0x08002a4e   Section        8  system_stm32f4xx.o(.constdata)
-    .constdata                               0x08002a56   Section       17  __printf_flags_wp.o(.constdata)
-    maptable                                 0x08002a56   Data          17  __printf_flags_wp.o(.constdata)
+    i.real_time                              0x08002994   Section        0  main.o(i.real_time)
+    i.test_start                             0x080029f4   Section        0  main.o(i.test_start)
+    x$fpl$fpinit                             0x08002a80   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08002a80   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x08002a8a   Section        8  stm32f4xx_hal_dma.o(.constdata)
+    flagBitshiftOffset                       0x08002a8a   Data           8  stm32f4xx_hal_dma.o(.constdata)
+    .constdata                               0x08002a92   Section       16  system_stm32f4xx.o(.constdata)
+    .constdata                               0x08002aa2   Section        8  system_stm32f4xx.o(.constdata)
+    .constdata                               0x08002aaa   Section       17  __printf_flags_wp.o(.constdata)
+    maptable                                 0x08002aaa   Data          17  __printf_flags_wp.o(.constdata)
     .data                                    0x20000000   Section        6  main.o(.data)
     .data                                    0x20000008   Section       12  nextion.o(.data)
     .data                                    0x20000014   Section       12  stm32f4xx_hal.o(.data)
@@ -2155,35 +2155,35 @@ Image Symbol Table
     I2C_checkack                             0x08002041   Thumb Code    74  sofware_i2c.o(i.I2C_checkack)
     MemManage_Handler                        0x080022c9   Thumb Code     2  stm32f4xx_it.o(i.MemManage_Handler)
     NMI_Handler                              0x080022cb   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
-    Nextion_Send_String                      0x080022cd   Thumb Code    36  nextion.o(i.Nextion_Send_String)
-    Nextion_SetColor                         0x08002301   Thumb Code    36  nextion.o(i.Nextion_SetColor)
-    PendSV_Handler                           0x08002335   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
-    SVC_Handler                              0x08002337   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
-    SetOutput_Gpio_A                         0x08002339   Thumb Code    56  mcp23017.o(i.SetOutput_Gpio_A)
-    SetOutput_Gpio_B                         0x08002371   Thumb Code    56  mcp23017.o(i.SetOutput_Gpio_B)
-    SysTick_Handler                          0x080023a9   Thumb Code     4  stm32f4xx_it.o(i.SysTick_Handler)
-    SystemClock_Config                       0x080023ad   Thumb Code   136  main.o(i.SystemClock_Config)
-    SystemInit                               0x0800243d   Thumb Code    12  system_stm32f4xx.o(i.SystemInit)
-    TIM3_IRQHandler                          0x0800244d   Thumb Code     6  stm32f4xx_it.o(i.TIM3_IRQHandler)
-    TIM_Base_SetConfig                       0x08002459   Thumb Code   122  stm32f4xx_hal_tim.o(i.TIM_Base_SetConfig)
-    TIM_ETR_SetConfig                        0x080024f1   Thumb Code    20  stm32f4xx_hal_tim.o(i.TIM_ETR_SetConfig)
-    UsageFault_Handler                       0x080026e1   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
-    Write_String                             0x080026e5   Thumb Code   112  nextion.o(i.Write_String)
-    _is_digit                                0x080027a1   Thumb Code    14  __printf_wp.o(i._is_digit)
-    banner                                   0x080027b1   Thumb Code    60  main.o(i.banner)
-    delay_init                               0x08002821   Thumb Code     6  delay.o(i.delay_init)
-    delay_us                                 0x0800282d   Thumb Code    18  delay.o(i.delay_us)
-    end_transmit                             0x08002845   Thumb Code    24  nextion.o(i.end_transmit)
-    main                                     0x08002865   Thumb Code   274  main.o(i.main)
-    real_time                                0x08002991   Thumb Code    72  main.o(i.real_time)
-    test_start                               0x080029f1   Thumb Code    50  main.o(i.test_start)
-    _fp_init                                 0x08002a2d   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08002a35   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08002a35   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    AHBPrescTable                            0x08002a3e   Data          16  system_stm32f4xx.o(.constdata)
-    APBPrescTable                            0x08002a4e   Data           8  system_stm32f4xx.o(.constdata)
-    Region$$Table$$Base                      0x08002a68   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08002a88   Number         0  anon$$obj.o(Region$$Table)
+    Nextion_Send_String                      0x080022cd   Thumb Code    44  nextion.o(i.Nextion_Send_String)
+    Nextion_SetColor                         0x0800230d   Thumb Code    36  nextion.o(i.Nextion_SetColor)
+    PendSV_Handler                           0x08002341   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
+    SVC_Handler                              0x08002343   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
+    SetOutput_Gpio_A                         0x08002345   Thumb Code    56  mcp23017.o(i.SetOutput_Gpio_A)
+    SetOutput_Gpio_B                         0x0800237d   Thumb Code    56  mcp23017.o(i.SetOutput_Gpio_B)
+    SysTick_Handler                          0x080023b5   Thumb Code     4  stm32f4xx_it.o(i.SysTick_Handler)
+    SystemClock_Config                       0x080023b9   Thumb Code   136  main.o(i.SystemClock_Config)
+    SystemInit                               0x08002449   Thumb Code    12  system_stm32f4xx.o(i.SystemInit)
+    TIM3_IRQHandler                          0x08002459   Thumb Code     6  stm32f4xx_it.o(i.TIM3_IRQHandler)
+    TIM_Base_SetConfig                       0x08002465   Thumb Code   122  stm32f4xx_hal_tim.o(i.TIM_Base_SetConfig)
+    TIM_ETR_SetConfig                        0x080024fd   Thumb Code    20  stm32f4xx_hal_tim.o(i.TIM_ETR_SetConfig)
+    UsageFault_Handler                       0x080026ed   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
+    Write_String                             0x080026f1   Thumb Code   112  nextion.o(i.Write_String)
+    _is_digit                                0x080027ad   Thumb Code    14  __printf_wp.o(i._is_digit)
+    banner                                   0x080027bd   Thumb Code    60  main.o(i.banner)
+    delay_init                               0x0800282d   Thumb Code     6  delay.o(i.delay_init)
+    delay_us                                 0x08002839   Thumb Code    18  delay.o(i.delay_us)
+    end_transmit                             0x08002851   Thumb Code    12  nextion.o(i.end_transmit)
+    main                                     0x08002865   Thumb Code   278  main.o(i.main)
+    real_time                                0x08002995   Thumb Code    72  main.o(i.real_time)
+    test_start                               0x080029f5   Thumb Code    58  main.o(i.test_start)
+    _fp_init                                 0x08002a81   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08002a89   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08002a89   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    AHBPrescTable                            0x08002a92   Data          16  system_stm32f4xx.o(.constdata)
+    APBPrescTable                            0x08002aa2   Data           8  system_stm32f4xx.o(.constdata)
+    Region$$Table$$Base                      0x08002abc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002adc   Number         0  anon$$obj.o(Region$$Table)
     adc_value                                0x20000000   Data           2  main.o(.data)
     status                                   0x20000002   Data           4  main.o(.data)
     lcd_mumber_line                          0x20000008   Data           1  nextion.o(.data)
@@ -2214,9 +2214,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000199
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002aac, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002b00, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002a88, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002adc, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2367,55 +2367,55 @@ Memory Map of the image
     0x08002264   0x08002264   0x00000064   Code   RO           19    i.MX_TIM3_Init      main.o
     0x080022c8   0x080022c8   0x00000002   Code   RO          250    i.MemManage_Handler  stm32f4xx_it.o
     0x080022ca   0x080022ca   0x00000002   Code   RO          251    i.NMI_Handler       stm32f4xx_it.o
-    0x080022cc   0x080022cc   0x00000034   Code   RO          516    i.Nextion_Send_String  nextion.o
-    0x08002300   0x08002300   0x00000034   Code   RO          517    i.Nextion_SetColor  nextion.o
-    0x08002334   0x08002334   0x00000002   Code   RO          252    i.PendSV_Handler    stm32f4xx_it.o
-    0x08002336   0x08002336   0x00000002   Code   RO          253    i.SVC_Handler       stm32f4xx_it.o
-    0x08002338   0x08002338   0x00000038   Code   RO          449    i.SetOutput_Gpio_A  mcp23017.o
-    0x08002370   0x08002370   0x00000038   Code   RO          450    i.SetOutput_Gpio_B  mcp23017.o
-    0x080023a8   0x080023a8   0x00000004   Code   RO          254    i.SysTick_Handler   stm32f4xx_it.o
-    0x080023ac   0x080023ac   0x00000090   Code   RO           20    i.SystemClock_Config  main.o
-    0x0800243c   0x0800243c   0x00000010   Code   RO         3609    i.SystemInit        system_stm32f4xx.o
-    0x0800244c   0x0800244c   0x0000000c   Code   RO          255    i.TIM3_IRQHandler   stm32f4xx_it.o
-    0x08002458   0x08002458   0x00000098   Code   RO         2373    i.TIM_Base_SetConfig  stm32f4xx_hal_tim.o
-    0x080024f0   0x080024f0   0x00000014   Code   RO         2384    i.TIM_ETR_SetConfig  stm32f4xx_hal_tim.o
-    0x08002504   0x08002504   0x00000010   Code   RO         2385    i.TIM_ITRx_SetConfig  stm32f4xx_hal_tim.o
-    0x08002514   0x08002514   0x00000022   Code   RO         2391    i.TIM_TI1_ConfigInputStage  stm32f4xx_hal_tim.o
-    0x08002536   0x08002536   0x00000024   Code   RO         2393    i.TIM_TI2_ConfigInputStage  stm32f4xx_hal_tim.o
-    0x0800255a   0x0800255a   0x00000002   PAD
-    0x0800255c   0x0800255c   0x0000010c   Code   RO         3306    i.UART_SetConfig    stm32f4xx_hal_uart.o
-    0x08002668   0x08002668   0x00000078   Code   RO         3309    i.UART_WaitOnFlagUntilTimeout  stm32f4xx_hal_uart.o
-    0x080026e0   0x080026e0   0x00000002   Code   RO          256    i.UsageFault_Handler  stm32f4xx_it.o
-    0x080026e2   0x080026e2   0x00000002   PAD
-    0x080026e4   0x080026e4   0x0000009c   Code   RO          519    i.Write_String      nextion.o
-    0x08002780   0x08002780   0x00000020   Code   RO         1903    i.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
-    0x080027a0   0x080027a0   0x0000000e   Code   RO         3731    i._is_digit         c_w.l(__printf_wp.o)
-    0x080027ae   0x080027ae   0x00000002   PAD
-    0x080027b0   0x080027b0   0x00000070   Code   RO           21    i.banner            main.o
-    0x08002820   0x08002820   0x0000000c   Code   RO          405    i.delay_init        delay.o
-    0x0800282c   0x0800282c   0x00000018   Code   RO          407    i.delay_us          delay.o
-    0x08002844   0x08002844   0x00000020   Code   RO          521    i.end_transmit      nextion.o
-    0x08002864   0x08002864   0x0000012c   Code   RO           22    i.main              main.o
-    0x08002990   0x08002990   0x00000060   Code   RO           23    i.real_time         main.o
-    0x080029f0   0x080029f0   0x0000003c   Code   RO           24    i.test_start        main.o
-    0x08002a2c   0x08002a2c   0x0000000a   Code   RO         3954    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08002a36   0x08002a36   0x00000008   Data   RO         1596    .constdata          stm32f4xx_hal_dma.o
-    0x08002a3e   0x08002a3e   0x00000010   Data   RO         3610    .constdata          system_stm32f4xx.o
-    0x08002a4e   0x08002a4e   0x00000008   Data   RO         3611    .constdata          system_stm32f4xx.o
-    0x08002a56   0x08002a56   0x00000011   Data   RO         3734    .constdata          c_w.l(__printf_flags_wp.o)
-    0x08002a67   0x08002a67   0x00000001   PAD
-    0x08002a68   0x08002a68   0x00000020   Data   RO         4049    Region$$Table       anon$$obj.o
+    0x080022cc   0x080022cc   0x00000040   Code   RO          516    i.Nextion_Send_String  nextion.o
+    0x0800230c   0x0800230c   0x00000034   Code   RO          517    i.Nextion_SetColor  nextion.o
+    0x08002340   0x08002340   0x00000002   Code   RO          252    i.PendSV_Handler    stm32f4xx_it.o
+    0x08002342   0x08002342   0x00000002   Code   RO          253    i.SVC_Handler       stm32f4xx_it.o
+    0x08002344   0x08002344   0x00000038   Code   RO          449    i.SetOutput_Gpio_A  mcp23017.o
+    0x0800237c   0x0800237c   0x00000038   Code   RO          450    i.SetOutput_Gpio_B  mcp23017.o
+    0x080023b4   0x080023b4   0x00000004   Code   RO          254    i.SysTick_Handler   stm32f4xx_it.o
+    0x080023b8   0x080023b8   0x00000090   Code   RO           20    i.SystemClock_Config  main.o
+    0x08002448   0x08002448   0x00000010   Code   RO         3609    i.SystemInit        system_stm32f4xx.o
+    0x08002458   0x08002458   0x0000000c   Code   RO          255    i.TIM3_IRQHandler   stm32f4xx_it.o
+    0x08002464   0x08002464   0x00000098   Code   RO         2373    i.TIM_Base_SetConfig  stm32f4xx_hal_tim.o
+    0x080024fc   0x080024fc   0x00000014   Code   RO         2384    i.TIM_ETR_SetConfig  stm32f4xx_hal_tim.o
+    0x08002510   0x08002510   0x00000010   Code   RO         2385    i.TIM_ITRx_SetConfig  stm32f4xx_hal_tim.o
+    0x08002520   0x08002520   0x00000022   Code   RO         2391    i.TIM_TI1_ConfigInputStage  stm32f4xx_hal_tim.o
+    0x08002542   0x08002542   0x00000024   Code   RO         2393    i.TIM_TI2_ConfigInputStage  stm32f4xx_hal_tim.o
+    0x08002566   0x08002566   0x00000002   PAD
+    0x08002568   0x08002568   0x0000010c   Code   RO         3306    i.UART_SetConfig    stm32f4xx_hal_uart.o
+    0x08002674   0x08002674   0x00000078   Code   RO         3309    i.UART_WaitOnFlagUntilTimeout  stm32f4xx_hal_uart.o
+    0x080026ec   0x080026ec   0x00000002   Code   RO          256    i.UsageFault_Handler  stm32f4xx_it.o
+    0x080026ee   0x080026ee   0x00000002   PAD
+    0x080026f0   0x080026f0   0x0000009c   Code   RO          519    i.Write_String      nextion.o
+    0x0800278c   0x0800278c   0x00000020   Code   RO         1903    i.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
+    0x080027ac   0x080027ac   0x0000000e   Code   RO         3731    i._is_digit         c_w.l(__printf_wp.o)
+    0x080027ba   0x080027ba   0x00000002   PAD
+    0x080027bc   0x080027bc   0x00000070   Code   RO           21    i.banner            main.o
+    0x0800282c   0x0800282c   0x0000000c   Code   RO          405    i.delay_init        delay.o
+    0x08002838   0x08002838   0x00000018   Code   RO          407    i.delay_us          delay.o
+    0x08002850   0x08002850   0x00000014   Code   RO          521    i.end_transmit      nextion.o
+    0x08002864   0x08002864   0x00000130   Code   RO           22    i.main              main.o
+    0x08002994   0x08002994   0x00000060   Code   RO           23    i.real_time         main.o
+    0x080029f4   0x080029f4   0x0000008c   Code   RO           24    i.test_start        main.o
+    0x08002a80   0x08002a80   0x0000000a   Code   RO         3954    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08002a8a   0x08002a8a   0x00000008   Data   RO         1596    .constdata          stm32f4xx_hal_dma.o
+    0x08002a92   0x08002a92   0x00000010   Data   RO         3610    .constdata          system_stm32f4xx.o
+    0x08002aa2   0x08002aa2   0x00000008   Data   RO         3611    .constdata          system_stm32f4xx.o
+    0x08002aaa   0x08002aaa   0x00000011   Data   RO         3734    .constdata          c_w.l(__printf_flags_wp.o)
+    0x08002abb   0x08002abb   0x00000001   PAD
+    0x08002abc   0x08002abc   0x00000020   Data   RO         4049    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002a88, Size: 0x00000840, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002adc, Size: 0x00000840, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08002a88   0x00000006   Data   RW           35    .data               main.o
-    0x20000006   0x08002a8e   0x00000002   PAD
-    0x20000008   0x08002a90   0x0000000c   Data   RW          528    .data               nextion.o
-    0x20000014   0x08002a9c   0x0000000c   Data   RW         2047    .data               stm32f4xx_hal.o
-    0x20000020   0x08002aa8   0x00000004   Data   RW         3612    .data               system_stm32f4xx.o
+    0x20000000   0x08002adc   0x00000006   Data   RW           35    .data               main.o
+    0x20000006   0x08002ae2   0x00000002   PAD
+    0x20000008   0x08002ae4   0x0000000c   Data   RW          528    .data               nextion.o
+    0x20000014   0x08002af0   0x0000000c   Data   RW         2047    .data               stm32f4xx_hal.o
+    0x20000020   0x08002afc   0x00000004   Data   RW         3612    .data               system_stm32f4xx.o
     0x20000024        -       0x0000015c   Zero   RW           25    .bss                main.o
     0x20000180        -       0x00000060   Zero   RW           26    .bss                main.o
     0x200001e0        -       0x00000060   Zero   RW         3879    .bss                c_w.l(libspace.o)
@@ -2431,9 +2431,9 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         36         12          0          0          0       1016   delay.o
-      1424        190          0          6        444     443673   main.o
+      1508        262          0          6        444     443701   main.o
        162          0          0          0          0       2039   mcp23017.o
-       292         98          0         12          0       4185   nextion.o
+       292        102          0         12          0       4141   nextion.o
        456         28          0          0          0       3684   sofware_i2c.o
         64         26        408          0       1536        892   startup_stm32f411xe.o
        180         28          0         12          0       9665   stm32f4xx_hal.o
@@ -2450,7 +2450,7 @@ Image component sizes
         16          4         24          4          0       1271   system_stm32f4xx.o
 
     ----------------------------------------------------------------------
-      8836        742        472         36       1980     548149   Object Totals
+      8920        818        472         36       1980     548133   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         14          0          0          2          0          0   (incl. Padding)
 
@@ -2517,15 +2517,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     10398        790        490         36       2076     540533   Grand Totals
-     10398        790        490         36       2076     540533   ELF Image Totals
-     10398        790        490         36          0          0   ROM Totals
+     10482        866        490         36       2076     540517   Grand Totals
+     10482        866        490         36       2076     540517   ELF Image Totals
+     10482        866        490         36          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                10888 (  10.63kB)
+    Total RO  Size (Code + RO Data)                10972 (  10.71kB)
     Total RW  Size (RW Data + ZI Data)              2112 (   2.06kB)
-    Total ROM Size (Code + RO Data + RW Data)      10924 (  10.67kB)
+    Total ROM Size (Code + RO Data + RW Data)      11008 (  10.75kB)
 
 ==============================================================================
 
