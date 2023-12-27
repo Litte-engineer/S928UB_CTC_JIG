@@ -1,6 +1,11 @@
 
 #include "main.h"
-
+#include "Nextion.h"
+#include "delay.h"
+#include "sofware_i2c.h"
+#include "MCP23017.h"
+#include "Spen_74hc.h"
+#include "pinmap.h"
 ADC_HandleTypeDef hadc1;
 
 TIM_HandleTypeDef htim2;
@@ -16,15 +21,23 @@ static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 
+char* lcd_data[MAX_CAPCHE];
+char* lcd_text_color[MAX_CAPCHE];
+char* test_result[20];
+uint8_t lcd_count_line;
+uint8_t lcd_old_line_mumber;
+uint8_t lcd_status_touch;
+uint8_t lcd_reset_line_up;
+
 void test_start(void);
 void test_testing(void);
 void banner(void);
-
-
+void real_time(void);
 
 uint32_t time;
 uint16_t adc_value;
-
+uint32_t r_spec;
+char buff_time[50];
 
 typedef struct
 {
@@ -38,16 +51,29 @@ typedef struct
 {
 	uint8_t test;
 	uint8_t display;
+	uint8_t banner;
+	uint8_t sensor;
 }Status;
 Status status;
+
+typedef struct
+{
+	uint8_t hour;
+	uint8_t min;
+	uint8_t sec;
+	uint8_t status;
+	uint32_t time;
+	uint8_t count;
+	uint8_t old_count;
+}TIME;
+TIME Time;
+
+
 
 int main(void)
 {
   HAL_Init();
-
   SystemClock_Config();
-
-
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_USART1_UART_Init();
@@ -55,56 +81,29 @@ int main(void)
   MX_TIM2_Init();
 	
 	delay_init();
-	
-	I2C_Init();
-	
+	I2C_Init();	
 	HAL_Delay(1000);
 	LCD_ON;
 	HAL_Delay(1000);
+	VAN_OFF;
 	
-	/*Write_String(0, GREEN_C, "MAIN_1 - UB_1 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(1, GREEN_C, "MAIN_2 - UB_2 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(2, GREEN_C, "MAIN_4 - UB_4 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(3, GREEN_C, "MAIN_5 - UB_5 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(4, GREEN_C, "MAIN_6 - UB_6 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(5, GREEN_C, "MAIN_7 - UB_7 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(6, GREEN_C, "MAIN_8 - UB_8 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(7, GREEN_C, "MAIN_9 - UB_9 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(8, GREEN_C, "MAIN_10 - UB_10 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(9, GREEN_C, "MAIN_12 - UB_12 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(10, GREEN_C, "MAIN_13 - UB_13 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(11, GREEN_C, "MAIN_14 - UB_14 : IN 3.3[V] - OUT 3.3[V]:OK");
-			Write_String(12, GREEN_C, "MAIN_15 - UB_15 : IN 3.3[V] - OUT 3.3[V]:OK");*/
+	
+	SetOutput_Gpio_A(MCP23017_DEVICE_1);
+	SetOutput_Gpio_B(MCP23017_DEVICE_1);
+	SetOutput_Gpio_A(MCP23017_DEVICE_2);
+	SetOutput_Gpio_B(MCP23017_DEVICE_2);
+	/*Write_String(0, BLUE_C, "*********************** STATR TESTING *******************");*/
 
   while (1)
   {
-		/*test_start();
-		if(status.display == 0)
-		{
-			banner();
-			Write_String(0, GREEN_C, "MAIN_1-UB_1 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			Write_String(1, GREEN_C, "MAIN_2-UB_2 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			Write_String(2, GREEN_C, "MAIN_4-UB_4 : IN 3.3[V] / O : 5 [R] / S : 5 [MR-> OK");
-			Write_String(3, GREEN_C, "MAIN_5-UB_5 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			Write_String(4, GREEN_C, "MAIN_6-UB_6 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			Write_String(5, GREEN_C, "MAIN_7-UB_7 : IN 3.3[V] / O : 5 [R] / S : 5 [R]-> OK");
-			Write_String(6, GREEN_C, "MAIN_8-UB_8 : IN 3.3[V] / O : 5 [R] / S : 5 [R]-> OK");
-			Write_String(7, GREEN_C, "MAIN_9-UB_9 : IN 3.3[V] / O : 5 [R] / S : 5 [R]-> OK");
-			Write_String(8, GREEN_C, "MAIN_10-UB_10 : IN 3.3[V] / O : 5 [R] / S : 5 [R]-> OK");
-			Write_String(9, GREEN_C, "MAIN_12-UB_12 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			Write_String(10, GREEN_C, "MAIN_13-UB_13 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");	
-			Write_String(11, GREEN_C, "MAIN_14-UB_14 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			Write_String(12, GREEN_C, "MAIN_15-UB_15 : IN 3.3[V] / O : 5 [R] / S : 5 [MR]-> OK");
-			status.display = 1;
-		}*/
-		
-		FET_20R_ON;
-		WriteBit_74HC (U1, HC74_PIN2, HIGH);
-		WriteBit_74HC (U12, HC74_PIN1, LOW);
 		HAL_ADC_Start(&hadc1);
 		adc_value = HAL_ADC_GetValue(&hadc1);
-		
+    banner();
+		status.sensor = SENSOR_READ;	
+
+		test_start();
   }
+  /* USER CODE END 3 */
 }
 
 
@@ -114,45 +113,84 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
 		VAN_ON;
 		status.test = 1;
+		Time.hour = 0;
+		Time.min = 0;
+		Time.sec = 0;
+		Time.status = OFF;
+	}
+	
+	if(GPIO_Pin == GPIO_PIN_15)
+	{
+		VAN_OFF;
+		status.test = 0;
+		Time.status = PAUSE;
 	}
 }
 
-/******** gham hien thi banner *****/
-void banner(void)
-{
-	Nextion_SetColor(MODEL, YELLOW );
-	Nextion_Send_String(MODEL, "SM-S928U UB CTC");
-	
-	Nextion_SetColor(F_W, YELLOW );
-	Nextion_Send_String(F_W, "REV0.6");
-	
-	Nextion_SetColor("t9", YELLOW );
-	Nextion_Send_String("t9", "02:18:24");
-	
-}
-
-/******** ham khoi dong bat dau test *****/
+/******* ham bat dau test *******/
 void test_start(void)
 {
 	if(status.test == 1)
 	{
-		if(HAL_GetTick() - time > 100)
+		if(status.sensor == SENSOR_ON) 
 		{
-			count.time ++;
-			time = HAL_GetTick();
+			Time.status = ON;
+			status.test = 2;
 		}
-		if(count.time == 15) status.test = 2;
+	}
+	if(status.test == 2)
+	{
+		real_time();
+		//Write_String(0, BLUE_C, "*********************** STATR TESTING *******************");	
 	}
 }
 
-/********* ham bat dau test *****/
-void test_testing(void)
+/****** hien banner *****/
+void banner(void)
 {
-	//if(status.test == 2)
-	
-	
+	if(status.banner == 0)
+	{
+		Nextion_SetColor(MODEL, YELLOW );
+		Nextion_Send_String(MODEL, "SM-S928U UB CTC");	
+		Nextion_SetColor(F_W, YELLOW );
+		Nextion_Send_String(F_W, "REV0.6");
+		Nextion_Send_String("t9", "00:00:00");
+		status.banner = 1;
+	}
+}
+/***** ham dem thoi gian test thuc te *****/
+void real_time(void)
+{
+		if(HAL_GetTick() - Time.time > 1000)
+		{
+			Time.count ++;
+			Time.time = HAL_GetTick();
+		}
+		if(Time.old_count != Time.count)
+		{
+			Time.sec ++;
+			sprintf(buff_time,"%02d:%02d:%02d", Time.hour, Time.min, Time.sec);
+			Nextion_Send_String("t9", buff_time);
+			Time.old_count = Time.count;
+		}
+		if(Time.sec > 59)
+		{
+			Time.min ++;
+			if(Time.min > 59)
+			{
+				Time.hour ++;
+				Time.min = 0;
+			}
+			Time.sec = 0;
+		}	
+		
+		
 }
 
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -366,8 +404,8 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PB1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  /*Configure GPIO pins : PB1 PB15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -377,6 +415,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB14 */
+  GPIO_InitStruct.Pin = GPIO_PIN_14;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC7 PC8 PC11 */
@@ -396,6 +440,9 @@ static void MX_GPIO_Init(void)
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI1_IRQn, 12, 0);
   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 14, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
