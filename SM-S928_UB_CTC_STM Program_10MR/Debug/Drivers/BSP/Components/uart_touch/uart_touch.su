@@ -1,0 +1,2 @@
+uart_touch.c:33:9:uart_touch_TS_DetectTouch	0	static
+uart_touch.c:52:6:uart_touch_TS_GetXY	8	static

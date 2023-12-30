@@ -49,6 +49,7 @@ void SetOutput_Gpio_B(uint8_t op_device);
 uint8_t I2C_Read_Register(uint8_t op_device, uint8_t addr);
 void I2C_WriteByte_Register(uint8_t op_device, uint8_t addr, uint8_t value);
 void DigitalWrite_Pin(uint8_t op_device, uint8_t GPIO, uint8_t PIN, uint8_t Dout);
+void MCP23017_Init(uint8_t op_device);
 
 #endif
 

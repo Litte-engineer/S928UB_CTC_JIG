@@ -1,7 +1,7 @@
 Dependencies for Project 'STM32 test product', Target 'STM32 test product': (DO NOT MODIFY !)
 F (startup_stm32f411xe.s)(0x658BEF51)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 528" --pd "_RTE_ SETA 1" --pd "STM32F411xE SETA 1"--list startup_stm32f411xe.lst --xref -o "stm32 test product\startup_stm32f411xe.o" --depend "stm32 test product\startup_stm32f411xe.d")
-F (../Core/Src/main.c)(0x658C1A06)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\main.o" --omf_browse "stm32 test product\main.crf" --depend "stm32 test product\main.d")
-I (../Core/Inc/main.h)(0x658BF41F)
+F (../Core/Src/main.c)(0x658E68B7)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\main.o" --omf_browse "stm32 test product\main.crf" --depend "stm32 test product\main.d")
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -35,15 +35,15 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
-I (../Core/Inc/Nextion.h)(0x658BD4D5)
+I (../Core/Inc/Nextion.h)(0x658CCAED)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB87F2)
 I (../Core/Inc/delay.h)(0x64F97245)
 I (../Core/Inc/sofware_i2c.h)(0x658B8E19)
-I (../Core/Inc/MCP23017.h)(0x64F97245)
+I (../Core/Inc/MCP23017.h)(0x658D1B61)
 I (../Core/Inc/Spen_74hc.h)(0x653B714B)
-I (../Core/Inc/pinmap.h)(0x658BCD42)
+I (../Core/Inc/pinmap.h)(0x658E21B9)
 F (../Core/Src/stm32f4xx_it.c)(0x658BEF2E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\stm32f4xx_it.o" --omf_browse "stm32 test product\stm32f4xx_it.crf" --depend "stm32 test product\stm32f4xx_it.d")
-I (../Core/Inc/main.h)(0x658BF41F)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -79,7 +79,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_it.h)(0x658BEF2E)
 F (../Core/Src/stm32f4xx_hal_msp.c)(0x658BEF2E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\stm32f4xx_hal_msp.o" --omf_browse "stm32 test product\stm32f4xx_hal_msp.crf" --depend "stm32 test product\stm32f4xx_hal_msp.d")
-I (../Core/Inc/main.h)(0x658BF41F)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -148,10 +148,10 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
-F (..\Core\Src\MCP23017.c)(0x64F97246)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\mcp23017.o" --omf_browse "stm32 test product\mcp23017.crf" --depend "stm32 test product\mcp23017.d")
-I (../Core/Inc/MCP23017.h)(0x64F97245)
+F (..\Core\Src\MCP23017.c)(0x658D1B61)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\mcp23017.o" --omf_browse "stm32 test product\mcp23017.crf" --depend "stm32 test product\mcp23017.d")
+I (../Core/Inc/MCP23017.h)(0x658D1B61)
 I (../Core/Inc/sofware_i2c.h)(0x658B8E19)
-I (../Core/Inc/main.h)(0x658BF41F)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -185,9 +185,9 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
-F (..\Core\Src\Nextion.c)(0x658C1A06)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\nextion.o" --omf_browse "stm32 test product\nextion.crf" --depend "stm32 test product\nextion.d")
-I (../Core/Inc/Nextion.h)(0x658BD4D5)
-I (../Core/Inc/main.h)(0x658BF41F)
+F (..\Core\Src\Nextion.c)(0x658E6569)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\nextion.o" --omf_browse "stm32 test product\nextion.crf" --depend "stm32 test product\nextion.d")
+I (../Core/Inc/Nextion.h)(0x658CCAED)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -222,9 +222,9 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEB87F2)
-F (..\Core\Src\pinmap.c)(0x658BC45D)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\pinmap.o" --omf_browse "stm32 test product\pinmap.crf" --depend "stm32 test product\pinmap.d")
-I (../Core/Inc/pinmap.h)(0x658BCD42)
-I (../Core/Inc/main.h)(0x658BF41F)
+F (..\Core\Src\pinmap.c)(0x658CF384)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\pinmap.o" --omf_browse "stm32 test product\pinmap.crf" --depend "stm32 test product\pinmap.d")
+I (../Core/Inc/pinmap.h)(0x658E21B9)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -259,11 +259,11 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
 I (../Core/Inc/Spen_74hc.h)(0x653B714B)
-I (../Core/Inc/MCP23017.h)(0x64F97245)
+I (../Core/Inc/MCP23017.h)(0x658D1B61)
 I (../Core/Inc/sofware_i2c.h)(0x658B8E19)
 F (..\Core\Src\sofware_i2c.c)(0x658B8E83)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\sofware_i2c.o" --omf_browse "stm32 test product\sofware_i2c.crf" --depend "stm32 test product\sofware_i2c.d")
 I (../Core/Inc/sofware_i2c.h)(0x658B8E19)
-I (../Core/Inc/main.h)(0x658BF41F)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)
@@ -299,9 +299,9 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x651FD5CA)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x651FD5CA)
 F (..\Core\Src\Spen_74hc.c)(0x658BB62B)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_STM32_test_product-IC:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o "stm32 test product\spen_74hc.o" --omf_browse "stm32 test product\spen_74hc.crf" --depend "stm32 test product\spen_74hc.d")
 I (../Core/Inc/Spen_74hc.h)(0x653B714B)
-I (../Core/Inc/MCP23017.h)(0x64F97245)
+I (../Core/Inc/MCP23017.h)(0x658D1B61)
 I (../Core/Inc/sofware_i2c.h)(0x658B8E19)
-I (../Core/Inc/main.h)(0x658BF41F)
+I (../Core/Inc/main.h)(0x658CF384)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x651FD5CA)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x658BEF2F)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x651FD5CA)

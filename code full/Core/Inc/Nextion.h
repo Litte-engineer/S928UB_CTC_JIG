@@ -54,4 +54,8 @@ void end_transmit(void);
 void lcd_add_line(char* str, char* color);
 void result_test_lcd_spen(float res, char* con, char* mode_test);
 
+
+
+void add_line_lcd(char* str, char* color, uint8_t *lcd_count_line);
+
 #endif 

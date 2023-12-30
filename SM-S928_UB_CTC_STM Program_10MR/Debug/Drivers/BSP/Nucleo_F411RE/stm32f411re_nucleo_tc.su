@@ -1,0 +1,2 @@
+stm32f411re_nucleo_tc.c:20:9:BSP_TS_Init	0	static
+stm32f411re_nucleo_tc.c:29:9:BSP_TS_GetState	24	static

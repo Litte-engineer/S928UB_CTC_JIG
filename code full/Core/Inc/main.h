@@ -81,7 +81,7 @@ extern "C" {
 #define FET_20R_OFF                     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET)
 #define FET_200R_ON                     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET)
 #define FET_200R_OFF                    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET)
-#define FET_2K_ON                    	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET)
+#define FET_2K_ON                    	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET)
 #define FET_2K_OFF                      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET)
 #define FET_20K_ON                      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET)
 #define FET_20K_OFF                     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET)

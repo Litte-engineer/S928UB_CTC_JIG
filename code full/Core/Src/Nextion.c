@@ -5,7 +5,8 @@ void (*tft_serial)(uint8_t, char*, char*) = &Write_String;
 
 // xstr 5,100,50,20,0,GREEN,BLACK,1,1,0,"hello"
 uint8_t Cmd_end[3] = {0xff,0xff,0xff};
-extern char* lcd_data[MAX_CAPCHE];
+char* lcd_data[MAX_CAPCHE]; 
+
 extern char* lcd_text_color[MAX_CAPCHE];
 extern uint8_t lcd_count_line;
 extern uint8_t lcd_status_touch;
@@ -23,7 +24,7 @@ uint32_t lcd_time;
 void end_transmit(void)
 {
 	HAL_UART_Transmit(&UART_NEXTION, Cmd_end, 3, 100);
-	//HAL_Delay(10);
+	HAL_Delay(10);
 }
 
 /*************** chuyen page **********************/
@@ -119,6 +120,7 @@ void Write_String(uint8_t line, char* color, char* str)
 	  uint16_t length = sprintf((char*)buffer, "xstr 5,%d,480,16,4,%s,BLACK,0,1,1,\"%s\"",line_y, color, str);
 		HAL_UART_Transmit(&UART_NEXTION, (uint8_t*)buffer, length, 0xFFFF); 
 		end_transmit();	
+		HAL_Delay(70);
 }
 /******* ham hien thi ket qua test **********/
 void lcd_result(uint8_t result, uint8_t in_out)
@@ -310,15 +312,27 @@ void result_test_lcd_spen(float res, char* con, char* mode_test)
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/******* ham them dong vao man hinh *******/
 void add_line_lcd(char* str, char* color, uint8_t *lcd_count_line)
 {
-	if(*lcd_count_line < MUMBER_LINE_LCD)
+	if(*lcd_count_line < MAX_CAPCHE - 1)
 	{
-    tft_serial(*lcd_count_line, color, str);
-    lcd_data[*lcd_count_line] = str;
-		lcd_text_color[*lcd_count_line] = color;
-    *lcd_count_line = *lcd_count_line + 1;
+		if(*lcd_count_line < MUMBER_LINE_LCD)
+		{
+			lcd_data[*lcd_count_line] = str;
+			lcd_text_color[*lcd_count_line] = color;	
+			*lcd_count_line = *lcd_count_line + 1;		
+		}		
 	}
+	else
+	{
+		for(int i = 0; i < MAX_CAPCHE - 1; i ++)
+		{
+			lcd_data[i] 			= lcd_data[i + 1];
+			lcd_text_color[i] = lcd_text_color[i + 1];
+		}		
+	}
+	tft_serial(*lcd_count_line, color, str);
 }
 
 

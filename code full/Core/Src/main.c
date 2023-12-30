@@ -25,13 +25,80 @@ static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 
-char* lcd_data[MAX_CAPCHE];
+char* lcd_data1[60] = 
+{
+	"MAIN_1-UB_1 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_2-UB_2 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_4-UB_4 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_5-UB_5 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_6-UB_6 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_7-UB_7 : IN 3.3[V] / O : 6 [R] /S : 6[R]-> OK",
+	"MAIN_8-UB_8 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_9-UB_9 : IN 3.3[V] / O : 9 [R] /S : 9[R]-> OK",
+	"MAIN_10-UB_10 : IN 3.3[V] / O : 2 [R] /S : 2[R]-> OK",
+	"MAIN_11-UB_11 : IN 3.3[V] / O : 2 [R] /S : 2[R]-> OK",
+	"MAIN_12-UB_12 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_13-UB_13 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_14-UB_14 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_15-UB_15 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_16-UB_16 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_17-UB_17 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_18-UB_18 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_19-UB_19 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_20-UB_20 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	
+	"MAIN_21-UB_1 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_22-UB_2 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_24-UB_24 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_25-UB_25 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_26-UB_26 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_27-UB_26 : IN 3.3[V] / O : 6 [R] /S : 6[R]-> OK",
+	"MAIN_27-UB_27 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_28-UB_28 : IN 3.3[V] / O : 9 [R] /S : 9[R]-> OK",
+	"MAIN_29-UB_29 : IN 3.3[V] / O : 2 [R] /S : 2[R]-> OK",
+	"MAIN_30-UB_30 : IN 3.3[V] / O : 2 [R] /S : 2[R]-> OK",
+	"MAIN_31-UB_32 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_33-UB_33 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_34-UB_34 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_35-UB_35 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_36-UB_36 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_37-UB_37 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_38-UB_38 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	
+	"MAIN_39-UB_39 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_40-UB_40 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_41-UB_41 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_42-UB_42 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_43-UB_43 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_44-UB_44 : IN 3.3[V] / O : 6 [R] /S : 6[R]-> OK",
+	"MAIN_45-UB_45 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_46-UB_46 : IN 3.3[V] / O : 9 [R] /S : 9[R]-> OK",
+	"MAIN_47-UB_47 : IN 3.3[V] / O : 2 [R] /S : 2[R]-> OK",
+	"MAIN_48-UB_48 : IN 3.3[V] / O : 2 [R] /S : 2[R]-> OK",
+	"MAIN_49-UB_49 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_50-UB_50 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_51-UB_51 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_52-UB_52 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_53-UB_53 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_54-UB_54 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_55-UB_55 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	
+	"MAIN_56-UB_56 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_57-UB_57 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_58-UB_58 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_59-UB_59 : IN 3.3[V] / O : 3 [R] /S : 3[R]-> OK",
+	"MAIN_60-UB_60 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+	"MAIN_61-UB_61 : IN 3.3[V] / O : 7 [R] /S : 7[R]-> OK",
+	"MAIN_62-UB_62 : IN 3.3[V] / O : 5 [R] /S : 5[R]-> OK",
+};
+
 char* lcd_text_color[MAX_CAPCHE];
 char* test_result[20];
-uint8_t lcd_count_line;
+uint8_t lcd_count_line1;
 uint8_t lcd_old_line_mumber;
 uint8_t lcd_status_touch;
 uint8_t lcd_reset_line_up;
+ uint8_t lcd_count_line;
 
 void test_start(void);
 void test_testing(void);
@@ -100,6 +167,9 @@ int main(void)
 	HAL_Delay(50);
 	BUZZER_OFF;
 	
+	//MCP23017_Init(MCP23017_DEVICE_1);
+	//MCP23017_Init(MCP23017_DEVICE_2);
+	
 	SetOutput_Gpio_A(MCP23017_DEVICE_1);
 	SetOutput_Gpio_B(MCP23017_DEVICE_1);
 	SetOutput_Gpio_A(MCP23017_DEVICE_2);
@@ -109,10 +179,11 @@ int main(void)
   {
 		HAL_ADC_Start(&hadc1);
 		adc_value = HAL_ADC_GetValue(&hadc1);
-    banner();
-		status.sensor = SENSOR_READ;	
+		status.sensor = SENSOR_READ ;
 		real_time();
 		test_start();
+		banner();
+
   }
   /* USER CODE END 3 */
 }
@@ -152,10 +223,42 @@ void test_start(void)
 	}
 	if(status.test == 2)
 	{
-		add_line_lcd("*********************** STATR TESTING *******************", BLUE_C, &lcd_count_line);
-		add_line_lcd("***********************  TESTING *******************", BLUE_C, &lcd_count_line);
-		//tft_serial(0, BLUE_C, "*********************** STATR TESTING *******************");	
-		status.test = 3;
+		if(lcd_count_line1 < 59)
+		{
+			if(lcd_count_line1 < 13)
+			{
+				Write_String(lcd_count_line1, GREEN_C, lcd_data1[lcd_count_line1]);
+				sprintf(buff_time,"%02d:%02d:%02d", Time.hour, Time.min, Time.sec);
+				Nextion_Send_String("t9", buff_time);
+				lcd_count_line1 ++;
+				HAL_Delay(100);
+			}
+			else
+			{
+				for(uint8_t i = 0; i < 12; i ++)
+				{
+					Write_String(i, GREEN_C, lcd_data1[lcd_count_line1 - 12 + i]);
+					sprintf(buff_time,"%02d:%02d:%02d", Time.hour, Time.min, Time.sec);
+					Nextion_Send_String("t9", buff_time);
+					lcd_count_line1  ++;
+					HAL_Delay(100);
+				}	
+			}
+		}
+		else 
+		{
+			lcd_count_line1 = 0;
+			status.test = 3;
+		}
+		
+	}
+	if(status.test == 3)
+	{
+		if(status.sensor == SENSOR_ON) 
+		{
+			lcd_count_line1 = 0;	
+			status.test = 2;				
+		}		
 	}
 }
 
@@ -186,8 +289,6 @@ void real_time(void)
 			Nextion_Send_String("t9", buff_time);		
 			Time.old_count = Time.count;
 		}
-		
-		
 }
 
 

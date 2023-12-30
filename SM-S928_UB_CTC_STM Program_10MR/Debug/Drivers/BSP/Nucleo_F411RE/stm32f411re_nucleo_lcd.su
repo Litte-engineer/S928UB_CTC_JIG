@@ -1,0 +1,11 @@
+stm32f411re_nucleo_lcd.c:18:9:BSP_LCD_Init	8	static
+stm32f411re_nucleo_lcd.c:41:10:BSP_LCD_GetTextColor	0	static
+stm32f411re_nucleo_lcd.c:50:10:BSP_LCD_GetBackColor	0	static
+stm32f411re_nucleo_lcd.c:59:6:BSP_LCD_SetTextColor	0	static
+stm32f411re_nucleo_lcd.c:68:6:BSP_LCD_SetBackColor	0	static
+stm32f411re_nucleo_lcd.c:77:10:BSP_LCD_GetXSize	8	static
+stm32f411re_nucleo_lcd.c:86:10:BSP_LCD_GetYSize	8	static
+stm32f411re_nucleo_lcd.c:99:6:BSP_LCD_ClearStringLine	24	static
+stm32f411re_nucleo_lcd.c:109:6:BSP_LCD_Clear	40	static
+stm32f411re_nucleo_lcd.c:147:6:BSP_LCD_DisplayStringAt	72	static
+stm32f411re_nucleo_lcd.c:228:6:BSP_LCD_DisplayStringAtLine	40	static

@@ -1,0 +1,2 @@
+interrupt_callback.c:21:6:HAL_UART_RxCpltCallback	24	static
+interrupt_callback.c:63:6:HAL_GPIO_EXTI_Callback	8	static

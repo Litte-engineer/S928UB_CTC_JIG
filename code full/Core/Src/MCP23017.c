@@ -1,6 +1,19 @@
 #include "MCP23017.h"
 
-
+void MCP23017_Init(uint8_t op_device)
+{
+	uint8_t ack = 1;
+	uint8_t initCommand[] = {0x00, 0x00};
+	I2C_Start();
+	I2C_Write(op_device << 1);
+	ack = I2C_checkack();
+	I2C_Write(initCommand[0]);
+	ack = I2C_checkack();
+	I2C_Write(initCommand[1]);
+	ack = I2C_checkack();
+	I2C_Stop();
+	
+}
 
 
 void SetInput_Gpio_A(uint8_t op_device)
